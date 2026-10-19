@@ -1,4 +1,5 @@
 import Reveal from "./Reveal";
+import LeadForm from "./LeadForm";
 
 export default function OrderSection() {
   return (
@@ -15,6 +16,11 @@ export default function OrderSection() {
             Напишите пару слов — перезвоним в течение рабочего дня, ответим на
             вопросы и оформим заказ или подписку.
           </p>
+        </Reveal>
+        <Reveal delay={100}>
+          <div className="mt-10 max-w-2xl">
+            <LeadForm />
+          </div>
         </Reveal>
       </div>
     </section>
