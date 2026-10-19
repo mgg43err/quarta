@@ -20,9 +20,12 @@ export type Lead = {
   created_at: string;
 };
 
+const IS_SERVERLESS =
+  process.env.VERCEL === "1" || process.env.NETLIFY === "true";
+
 const DB_PATH =
   process.env.LEADS_DB_PATH ??
-  (process.env.VERCEL === "1" ? "/tmp/leads.db" : path.join(process.cwd(), "data", "leads.db"));
+  (IS_SERVERLESS ? "/tmp/leads.db" : path.join(process.cwd(), "data", "leads.db"));
 
 function initDb(): Database.Database {
   fs.mkdirSync(path.dirname(DB_PATH), { recursive: true });

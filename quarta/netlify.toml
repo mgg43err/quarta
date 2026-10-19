@@ -1,0 +1,13 @@
+[build]
+  base = "quarta"
+  command = "npm run build"
+  publish = ".next"
+
+[build.environment]
+  NPM_FLAGS = "--version"
+
+[[plugins]]
+  package = "@netlify/plugin-nextjs"
+
+[functions.environment]
+  LEADS_DB_PATH = "/tmp/leads.db"
